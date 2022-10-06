@@ -1,64 +1,49 @@
 ﻿#include <SFML/Graphics.hpp>
 
+#include "Hero.h"
+#include "Map.h"
 using namespace sf;
 int main()
 {
+	RenderWindow window(sf::VideoMode(1920, 1080), "sfml");
+     
+	Hero hero(512,512,34,59);
+
 	Clock clock;
-	float CurrentFrame = 0;
 
-
-	setlocale(LC_ALL, "ru");
-
-	RenderWindow window(sf::VideoMode(640, 480), "sfml");
-
-	Texture herotexture;
-	herotexture.loadFromFile("images/hero.png");
-
-	Sprite herosprite;
-	herosprite.setPosition(100, 100);
-	herosprite.setTexture(herotexture);
-	herosprite.setTextureRect(IntRect(64, 0, 36, 57));
-	
 
 	while (window.isOpen())
 	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
-
-
-
 		float time = clock.getElapsedTime().asMicroseconds();
 		clock.restart();
 		time = time / 800;
 		
 
-
-		if (Keyboard::isKeyPressed(Keyboard::A)) 
-		{ 
-			float dx = 1;
-			if (Keyboard::isKeyPressed(Keyboard::LShift)) dx = 2;
-			CurrentFrame += 0.005 * time;
-			if (CurrentFrame > 3) CurrentFrame -= 3;
-			herosprite.move(-0.1*time*dx, 0); 
-			herosprite.setTextureRect(IntRect(64 * int(CurrentFrame), 62, 36, 57));
+		Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == Event::Closed)
+				window.close();
 		}
-
-		if (Keyboard::isKeyPressed(Keyboard::D)) { 
-			float dx = 1;
-			if (Keyboard::isKeyPressed(Keyboard::LShift)) dx = 2;
-			CurrentFrame += 0.005 * time;
-			if (CurrentFrame > 3) CurrentFrame -= 3;
-			herosprite.move(0.1*time*dx, 0); 
-			herosprite.setTextureRect(IntRect(64 * int(CurrentFrame), 127, 36, 57));
-		}
-
-
+		
+		hero.update(time);
 		window.clear();
-		window.draw(herosprite);
+		//Texture map;
+		//map.loadFromFile("images/map.png");
+		//Sprite s_map;
+		//s_map.setTexture(map);
+		//for (int i = 0; i < HEIGHT_MAP; i++)
+		//	for (int j = 0; j < WIDTH_MAP; j++)
+		//	{
+		//		if ((TileMap[i][j] == '0')) s_map.setTextureRect(IntRect(0, 773, 64, 64));
+		//		if ((TileMap[i][j] == ' ')) s_map.setTextureRect(IntRect(72, 773, 64, 64));
+
+
+		//		s_map.setPosition(j * 32, i * 32);
+		//		/*window.draw(s_map);*/
+		//	}
+		window.draw(hero.getSprite());
+
 		window.display();
 	}
 
