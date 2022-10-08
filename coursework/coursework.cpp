@@ -10,7 +10,7 @@ int main()
 	Hero hero(512,512,34,59);
 
 	Clock clock;
-
+	float CurrentFrame = 0;
 
 	while (window.isOpen())
 	{
@@ -27,6 +27,7 @@ int main()
 		}
 		
 		hero.update(time);
+		
 		window.clear();
 		//Texture map;
 		//map.loadFromFile("images/map.png");
@@ -42,7 +43,12 @@ int main()
 		//		s_map.setPosition(j * 32, i * 32);
 		//		/*window.draw(s_map);*/
 		//	}
+		
+
+
 		window.draw(hero.getSprite());
+
+	
 
 		window.display();
 	}

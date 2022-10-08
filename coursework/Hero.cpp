@@ -2,14 +2,14 @@
 
 void Hero::Control(float time)
 {
-	float CurrentFrame = 0;
-	if (Keyboard::isKeyPressed) 
+
+	if (Keyboard::isKeyPressed)
 	{
-		if (Keyboard::isKeyPressed(Keyboard::A)) 
+		if (Keyboard::isKeyPressed(Keyboard::A))
 		{
 			CurrentFrame += 0.005 * time;
 			if (CurrentFrame > 3) CurrentFrame -= 3;
-			sprite.setTextureRect(IntRect(64 * int(CurrentFrame), 62, w, h));	
+			sprite.setTextureRect(IntRect(64 * int(CurrentFrame), 62, w, h));
 			state = left; speed = 0.1;
 		}
 		if (Keyboard::isKeyPressed(Keyboard::D))
@@ -19,13 +19,13 @@ void Hero::Control(float time)
 			sprite.setTextureRect(IntRect(64 * int(CurrentFrame), 127, w, h));
 			state = right; speed = 0.1;
 		}
-	    if((Keyboard::isKeyPressed(Keyboard::W)) && (onGround))
-	    {
-		    state = jump;
-		    dy = -0.6;
-		    onGround = false;
-	    }
-		if (Keyboard::isKeyPressed(Keyboard::S)) 
+		if ((Keyboard::isKeyPressed(Keyboard::W)) && (onGround))
+		{
+			state = jump;
+			dy = -0.6;
+			onGround = false;
+		}
+		if (Keyboard::isKeyPressed(Keyboard::S))
 		{
 			state = down;
 		}
@@ -49,6 +49,9 @@ void Hero::checkCollisionWithMap(float dx, float dy)
 }
 
 
+
+
+
 void Hero::update(float time)
 {
 	Control(time);
@@ -70,3 +73,5 @@ void Hero::update(float time)
 	dy += 0.0015 * time;
 
 }
+
+

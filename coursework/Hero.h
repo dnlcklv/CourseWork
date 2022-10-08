@@ -6,9 +6,11 @@ class Hero : public Entity
 private:
 	enum { left, right, up, down, jump, stay } state;
 	int playerScore;
+	float CurrentFrame;
 public:
 	Hero(float X, float Y, int W, int H) :Entity(X, Y, W, H) 
 	{
+		CurrentFrame = 0;
 		texture.loadFromFile("images/hero.png" );
 		sprite.setTexture(texture);
 		sprite.setOrigin(w / 2, h / 2);
@@ -18,6 +20,7 @@ public:
 	void Control(float time);
 	void checkCollisionWithMap(float dx, float dy);
 	void update(float time);
+	
 
 
 };
