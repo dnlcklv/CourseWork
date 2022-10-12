@@ -9,14 +9,14 @@ void Enemy::checkCollisionWithMap(float dx, float dy)
 			{
 				if (dy > 0) { y = i * 32 - h; }
 				if (dy < 0) { y = i * 32 + h; }
-				if (dx > 0) { x = j * 32 - w; dx *= -1; }
-				if (dx < 0) { x = j * 32 + w; dx *= -1; }
+				if (dx > 0) { x = j * 32 - w; this->dx *= -1; }
+				if (dx < 0) { x = j * 32 + 32; this->dx *= -1; }
 			}
 		}
 }
 void Enemy::update(float time)
 {
-	moveTimer += time;if (moveTimer > 300) { dx *= -1; moveTimer = 0; }
+	/*moveTimer += time;if (moveTimer > 300) { dx *= -1; moveTimer = 0; }*/
 	checkCollisionWithMap(dx,dy);
 	x += dx * time;
 	sprite.setPosition(x + w / 2, y + h / 2); 
