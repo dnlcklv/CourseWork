@@ -2,12 +2,20 @@
 
 #include "Hero.h"
 #include "Map.h"
+#include "EasyEnemy.h"
+#include "MediumEnemy.h"
+#include "HardEnemy.h"
+
 using namespace sf;
 int main()
 {
 	RenderWindow window(sf::VideoMode(1920, 1080), "sfml");
      
 	Hero hero(512,512,34,59);
+	EasyEnemy easyenemy(700,512,29,45);
+	MediumEnemy mediumenemy(600,512,29,45);
+	HardEnemy hardenemy(650, 512, 29, 45);
+
 
 	Clock clock;
 	float CurrentFrame = 0;
@@ -25,7 +33,9 @@ int main()
 			if (event.type == Event::Closed)
 				window.close();
 		}
-		
+		hardenemy.update(time);
+		easyenemy.update(time);
+		mediumenemy.update(time);
 		hero.update(time);
 		
 		window.clear();
@@ -44,9 +54,10 @@ int main()
 		//		/*window.draw(s_map);*/
 		//	}
 		
-
-
+		window.draw(mediumenemy.getSprite());
+		window.draw(easyenemy.getSprite());
 		window.draw(hero.getSprite());
+		window.draw(hardenemy.getSprite());
 
 	
 

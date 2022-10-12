@@ -20,8 +20,5 @@ public:
 	void Control(float time);
 	void checkCollisionWithMap(float dx, float dy);
 	void update(float time);
-	
-
-
 };
 

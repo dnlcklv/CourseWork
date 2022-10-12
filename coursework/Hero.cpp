@@ -31,7 +31,6 @@ void Hero::Control(float time)
 		}
 	}
 }
-
 void Hero::checkCollisionWithMap(float dx, float dy)
 {
 	for (int i = y / 32; i < (y + h) / 32; i++)
@@ -47,11 +46,6 @@ void Hero::checkCollisionWithMap(float dx, float dy)
 			else { onGround = false; } 
 		}
 }
-
-
-
-
-
 void Hero::update(float time)
 {
 	Control(time);
