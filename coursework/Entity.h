@@ -19,6 +19,7 @@ public:
 		speed = 0;
 		health = 100;
 		life = true; isMove = false; onGround = false;
+		moveTimer = 0;
 	}
    
 	Sprite getSprite() 

@@ -39,9 +39,9 @@ void Hero::checkCollisionWithMap(float dx, float dy)
 			if (TileMap[i][j] == '0')
 			{
 				if (dy > 0) { y = i * 32 - h;  dy = 0; onGround = true; }
-				if (dy < 0) { y = i * 32 + 32;  dy = 0; }
+				if (dy < 0) { y = i * 32 + h;  dy = 0; }
 				if (dx > 0) { x = j * 32 - w; }
-				if (dx < 0) { x = j * 32 + 32; }
+				if (dx < 0) { x = j * 32 + w; }
 			}
 			else { onGround = false; } 
 		}

@@ -8,16 +8,16 @@ void Enemy::checkCollisionWithMap(float dx, float dy)
 			if (TileMap[i][j] == '0')
 			{
 				if (dy > 0) { y = i * 32 - h; }
-				if (dy < 0) { y = i * 32 + 32; }
-				if (dx > 0) { x = j * 32 - w; dx *=-1; }
-				if (dx < 0) { x = j * 32 + 32; dx *=1; }
+				if (dy < 0) { y = i * 32 + h; }
+				if (dx > 0) { x = j * 32 - w; dx *= -1; }
+				if (dx < 0) { x = j * 32 + w; dx *= -1; }
 			}
 		}
 }
 void Enemy::update(float time)
 {
-	moveTimer += time;if (moveTimer>3000){ dx *= -1; moveTimer = 0; }
-	checkCollisionWithMap(dx,0);
+	moveTimer += time;if (moveTimer > 300) { dx *= -1; moveTimer = 0; }
+	checkCollisionWithMap(dx,dy);
 	x += dx * time;
 	sprite.setPosition(x + w / 2, y + h / 2); 
 	if (health <= 0) { life = false; }

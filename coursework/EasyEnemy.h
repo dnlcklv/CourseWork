@@ -9,7 +9,7 @@ public:
 		sprite.setTexture(texture);
 		sprite.setOrigin(w / 2, h / 2);
 		sprite.setTextureRect(IntRect(57, 0, W, H));
-		dx = -0.1;
+		dx = 0.2;
 	}
 
 };
