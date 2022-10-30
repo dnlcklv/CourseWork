@@ -11,6 +11,7 @@ protected:
 	bool life, isMove, onGround;
 	Texture texture;
 	Sprite sprite;
+	Map map;
 public:
 	Entity(float X, float Y, int W, int H)
 	{

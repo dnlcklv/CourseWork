@@ -5,7 +5,7 @@ void Enemy::checkCollisionWithMap(float dx, float dy)
 	for (int i = y / 32; i < (y + h) / 32;i++)
 		for (int j = x / 32;j < (x + w) / 32;j++)
 		{
-			if (TileMap[i][j] == '0')
+			if (map.getTileMap(i,j) == '|')
 			{
 				if (dy > 0) { y = i * 32 - h; }
 				if (dy < 0) { y = i * 32 + h; }

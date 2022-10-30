@@ -36,7 +36,7 @@ void Hero::checkCollisionWithMap(float dx, float dy)
 	for (int i = y / 32; i < (y + h) / 32; i++)
 		for (int j = x / 32; j < (x + w) / 32; j++)
 		{
-			if (TileMap[i][j] == '0')
+			if ((map.getTileMap(i,j) == '1') || (map.getTileMap(i,j) == '2'))
 			{
 				if (dy > 0) { y = i * 32 - h;  dy = 0; onGround = true; }
 				if (dy < 0) { y = i * 32 + h;  dy = 0; }
