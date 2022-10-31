@@ -26,6 +26,7 @@ public:
 	{
 		return sprite;
 	}
+
 	virtual void CheckColissionWithMapX(float &dx) = 0;
 	virtual void CheckColissionWithMapY(float &dy) = 0;
 	virtual void update(float time) = 0;
