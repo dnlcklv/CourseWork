@@ -18,7 +18,8 @@ public:
 		sprite.setTextureRect(IntRect(64, 126, W, H));
 	}
 	void Control(float time);
-	void checkCollisionWithMap(float dx, float dy);
-	void update(float time);
+	void CheckColissionWithMapX(float& dx) override;
+	void CheckColissionWithMapY(float& dy) override;
+	void update(float time) override;
 };
 

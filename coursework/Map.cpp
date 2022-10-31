@@ -32,9 +32,7 @@ void Map::Draw(sf::RenderWindow& window)
 			if (tileMap[i][j] == 'o') mapSprite.setTextureRect(IntRect(160, 129, 32, 32));
 			if (tileMap[i][j] == 'p') mapSprite.setTextureRect(IntRect(32, 31, 32, 32));
 
-
 			mapSprite.setPosition(j * 32, i * 32);
-
 			window.draw(mapSprite);
 		}
 }

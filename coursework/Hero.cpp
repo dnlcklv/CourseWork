@@ -2,7 +2,6 @@
 
 void Hero::Control(float time)
 {
-
 	if (Keyboard::isKeyPressed)
 	{
 		if (Keyboard::isKeyPressed(Keyboard::A))
@@ -25,25 +24,32 @@ void Hero::Control(float time)
 			dy = -0.6;
 			onGround = false;
 		}
-		if (Keyboard::isKeyPressed(Keyboard::S))
-		{
-			state = down;
-		}
 	}
 }
-void Hero::checkCollisionWithMap(float dx, float dy)
+void Hero::CheckColissionWithMapX(float& dx)
 {
 	for (int i = y / 32; i < (y + h) / 32; i++)
 		for (int j = x / 32; j < (x + w) / 32; j++)
 		{
 			if ((map.getTileMap(i,j) == '1') || (map.getTileMap(i,j) == '2'))
 			{
-				if (dy > 0) { y = i * 32 - h;  dy = 0; onGround = true; }
-				if (dy < 0) { y = i * 32 + h;  dy = 0; }
 				if (dx > 0) { x = j * 32 - w; }
 				if (dx < 0) { x = j * 32 + w; }
 			}
 			else { onGround = false; } 
+		}
+}
+void Hero::CheckColissionWithMapY(float& dy)
+{
+	for (int i = y / 32; i < (y + h) / 32; i++)
+		for (int j = x / 32; j < (x + w) / 32; j++)
+		{
+			if ((map.getTileMap(i, j) == '1') || (map.getTileMap(i, j) == '2'))
+			{
+				if (dy > 0) { y = i * 32 - h;  dy = 0; onGround = true; }
+				if (dy < 0) { y = i * 32 + 32; dy = 0; }
+			}
+			else { onGround = false; }
 		}
 }
 void Hero::update(float time)
@@ -58,9 +64,9 @@ void Hero::update(float time)
 	case stay: break;
 	}
 	x += dx*time;
-	checkCollisionWithMap(dx, 0);
+	CheckColissionWithMapX(dx);
 	y += dy*time;
-	checkCollisionWithMap(0, dy);
+	CheckColissionWithMapY(dy);
 	sprite.setPosition(x + w / 2, y + h / 2);
 	if (health <= 0) life = false;
 	if (!isMove) speed = 0;

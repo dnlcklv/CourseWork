@@ -8,7 +8,8 @@ public:
 	Enemy(float X, float Y, int W, int H) :Entity(X, Y, W, H) 
 	{
 	}
-	void checkCollisionWithMap(float dx,float dy);
-	void update(float time);
+	void CheckColissionWithMapX(float& dx) override;
+	void CheckColissionWithMapY(float& dy) override;
+	void update(float time) override;
 };
 
