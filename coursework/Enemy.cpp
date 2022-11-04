@@ -7,8 +7,10 @@ void Enemy::CheckColissionWithMapX(float& dx)
 		{
 			if (map.getTileMap(i,j) == '|')
 			{
-				if (dx > 0) { x = j * 32 - w; this->dx *= -1; }
-				if (dx < 0) { x = j * 32 + 32; this->dx *= -1; }
+				if (dx > 0) { x = j * 32 - w; dx *= -1; }
+				if (dx < 0) { x = j * 32 + 32; dx *= -1; }
+				if (dy > 0) { y = i * 32 - h; }
+				if (dy < 0) { y = i * 32 + h; }
 			}
 		}
 }
