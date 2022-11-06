@@ -1,21 +1,33 @@
 #include "Hero.h"
 
+void Hero::Animation(float time, int dir) 
+{
+	if (dir == 1)
+	{
+		CurrentFrame += 0.005 * time;
+		if (CurrentFrame > 3) CurrentFrame -= 3;
+		sprite.setTextureRect(IntRect(64 * int(CurrentFrame), 62, w, h));
+	}
+	else 
+	{
+		CurrentFrame += 0.005 * time;
+		if (CurrentFrame > 3) CurrentFrame -= 3;
+		sprite.setTextureRect(IntRect(64 * int(CurrentFrame), 127, w, h));
+	}
+}
+
 void Hero::Control(float time)
 {
 	if (Keyboard::isKeyPressed)
 	{
 		if (Keyboard::isKeyPressed(Keyboard::A))
 		{
-			CurrentFrame += 0.005 * time;
-			if (CurrentFrame > 3) CurrentFrame -= 3;
-			sprite.setTextureRect(IntRect(64 * int(CurrentFrame), 62, w, h));
+		    Animation(time, 1);
 			state = left; speed = 0.15;
 		}
 		if (Keyboard::isKeyPressed(Keyboard::D))
 		{
-			CurrentFrame += 0.005 * time;
-			if (CurrentFrame > 3) CurrentFrame -= 3;
-			sprite.setTextureRect(IntRect(64 * int(CurrentFrame), 127, w, h));
+			Animation(time, 2);
 			state = right; speed = 0.15;
 		}
 		if ((Keyboard::isKeyPressed(Keyboard::W)) && (onGround))
@@ -39,9 +51,8 @@ void Hero::CheckColissionWithMapX(float& dx)
 			if (map.getTileMap(i,j) == '1' || map.getTileMap(i,j) == '2' || map.getTileMap(i, j) == '|')
 			{
 				if (dx > 0) { x = j * 32 - w; }
-				if (dx < 0) { x = j * 32 + w; }
+				if (dx < 0) { x = j * 32 + 32; }
 			}
-			else { onGround = false; } 
 			if (map.getTileMap(i, j) == '3') life = false;
 		}
 }
@@ -53,10 +64,10 @@ void Hero::CheckColissionWithMapY(float& dy)
 			if (map.getTileMap(i, j) == '1' || map.getTileMap(i, j) == '|')
 			{
 				if (dy > 0) { y = i * 32 - h;  dy = 0; onGround = true; }
-				if (dy < 0) { y = i * 32 + 32; dy = 0; }
+				if (dy < 0) { y = i * 32 + h; dy = 0; }
 			}
-			if (map.getTileMap(i, j) == '2') dy = -0.8;
-			if (map.getTileMap(i, j) == '3') health = 0;
+			if (map.getTileMap(i, j) == '2') dy = -1.1;
+			if (map.getTileMap(i, j) == '3') { life = false; }
 		}
 }
 void Hero::updateView(float X, float Y) 
@@ -81,7 +92,7 @@ void Hero::update(float time)
 	CheckColissionWithMapY(dy);
 	sprite.setPosition(x + w / 2, y + h / 2);
 	if (health <= 0) life = false;
-	if (life = false) { sprite.setScale(0.5f, 0.5f); }
+	if (life = false) { sprite.setScale(0.1f, 0.1f); }
 	if (!isMove) speed = 0;
 	dy += 0.0015 * time;
 	updateView(x, y);

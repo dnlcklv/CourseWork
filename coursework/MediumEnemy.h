@@ -4,7 +4,7 @@
 class MediumEnemy : public Enemy
 {
 public:
-	MediumEnemy(float X, float Y, float W, float H) : Enemy(X,Y,W,H)
+	MediumEnemy(float X, float Y, float W, float H) : Enemy(X,Y)
 	{
 		texture.loadFromFile("images/MediumEnemy.png");
 		sprite.setTexture(texture);

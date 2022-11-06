@@ -5,7 +5,7 @@
 class Enemy : public Entity  
 {
 public:
-	Enemy(float X, float Y, int W, int H) :Entity(X, Y, W, H) 
+	Enemy(float X, float Y) :Entity(X, Y)
 	{
 	}
 	void CheckColissionWithMapX(float& dx) override;

@@ -3,7 +3,7 @@
 class HardEnemy:public Enemy
 {
 public:
-	HardEnemy(float X, float Y, int W, int H) :Enemy(X, Y, W, H)
+	HardEnemy(float X, float Y, int W, int H) :Enemy(X, Y)
 	{
 		texture.loadFromFile("images/HardEnemy.png");
 		sprite.setTexture(texture);
