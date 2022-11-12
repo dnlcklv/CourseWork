@@ -10,7 +10,7 @@ void Map::Draw(sf::RenderWindow& window)
 	for (int i = 0; i < height; i++)
 		for (int j = 0; j <= width; j++)
 		{
-			if (tileMap[i][j] == ' ' || tileMap[i][j] == '|') mapSprite.setTextureRect(IntRect(128, 128, 32, 32));
+			if (tileMap[i][j] == ' ' || tileMap[i][j] == '|' || tileMap[i][j] == 'z' || tileMap[i][j] == 'x' || tileMap[i][j] == 'c') mapSprite.setTextureRect(IntRect(0, 152, 32, 32));
 			if (tileMap[i][j] == '1') mapSprite.setTextureRect(IntRect(127, 58, 32, 32));
 			if (tileMap[i][j] == '2') mapSprite.setTextureRect(IntRect(385, 85, 32, 32));
 			if (tileMap[i][j] == '3') mapSprite.setTextureRect(IntRect(32, 31, 32, 32));

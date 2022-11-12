@@ -3,13 +3,14 @@
 class HardEnemy:public Enemy
 {
 public:
-	HardEnemy(float X, float Y, int W, int H) :Enemy(X, Y)
+	HardEnemy(float X, float Y) :Enemy(X, Y)
 	{
 		texture.loadFromFile("images/HardEnemy.png");
 		sprite.setTexture(texture);
 		sprite.setOrigin(w / 2, h / 2);
-		sprite.setTextureRect(IntRect(53, 0, W, H));
-		dx = 0.1;
+		sprite.setTextureRect(IntRect(53, 0, w, h));
+		dx = 0.17;
+		health = 5;
 	}
 };
 

@@ -1,5 +1,4 @@
 #include "Enemy.h"
-
 void Enemy::CheckColissionWithMapX(float& dx)
 {
 	for (int i = y / 32; i < (y + h) / 32;i++)
@@ -17,7 +16,7 @@ void Enemy::CheckColissionWithMapY(float& dy)
 	for (int i = y / 32; i < (y + h) / 32;i++)
 		for (int j = x / 32;j < (x + w) / 32;j++)
 		{
-			if (map.getTileMap(i, j) == '1' || map.getTileMap(i, j) == '2' || map.getTileMap(i,j) == '|')
+			if (map.getTileMap(i, j) == '1' || map.getTileMap(i, j) == '2' || map.getTileMap(i, j) == '|')
 			{
 				if (dy > 0) { y = i * 32 - h; dy = 0; onGround = true; }
 				if (dy < 0) { y = i * 32 + 32; dy = 0; onGround = false; }
@@ -28,11 +27,10 @@ void Enemy::CheckColissionWithMapY(float& dy)
 }
 void Enemy::update(float time)
 {
-	moveTimer += time; if (moveTimer > 300) { dx *= -1; moveTimer = 0; }
 	x += dx * time;
 	CheckColissionWithMapX(dx);
 	y += dy * time;
 	CheckColissionWithMapY(dy);
-	sprite.setPosition(x + w / 2, y + h / 2); 
+	sprite.setPosition(x + w / 2, y + h / 2);
 	if (health <= 0) { life = false; }
 }
