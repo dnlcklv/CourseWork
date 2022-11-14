@@ -5,12 +5,16 @@ class HardEnemy:public Enemy
 public:
 	HardEnemy(float X, float Y) :Enemy(X, Y)
 	{
-		texture.loadFromFile("images/HardEnemy.png");
-		sprite.setTexture(texture);
-		sprite.setOrigin(w / 2, h / 2);
-		sprite.setTextureRect(IntRect(53, 0, w, h));
+		texturEntity.loadFromFile("images/HardEnemy.png");
+		spriteEntity.setTexture(texturEntity);
+		spriteEntity.setOrigin(w / 2, h / 2);
+		spriteEntity.setTextureRect(IntRect(53, 0, w, h));
 		dx = 0.17;
 		health = 5;
+		for (int i = 1; i <= health; i++)
+		{
+			healths.push_back(spriteHealth);
+		}
 	}
 };
 

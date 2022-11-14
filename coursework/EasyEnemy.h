@@ -6,12 +6,16 @@ public:
 	EasyEnemy(float X, float Y) :Enemy(X, Y)
 	{
 		onGround = false;
-		texture.loadFromFile("images/EasyEnemy.png");
-		sprite.setTexture(texture);
-		sprite.setOrigin(w / 2, h / 2);
-		sprite.setTextureRect(IntRect(57, 0, w, h));
+		texturEntity.loadFromFile("images/EasyEnemy.png");
+		spriteEntity.setTexture(texturEntity);
+		spriteEntity.setOrigin(w / 2, h / 2);
+		spriteEntity.setTextureRect(IntRect(57, 0, w, h));
 		dx = 0.1;
 		health = 1;
+		for (int i = 1; i <= health; i++)
+		{
+			healths.push_back(spriteHealth);
+		}
 	}
 };
 

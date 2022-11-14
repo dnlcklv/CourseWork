@@ -1,4 +1,5 @@
 ﻿#include <list>
+#include <vector>
 
 #include "Hero.h"
 #include "Map.h"
@@ -25,6 +26,7 @@ int main()
 	float time = 0;
 	bool select;
 
+
 	for (int i = 0; i < map.getHeight(); i++)
 		for (int j = 0; j < map.getWidth(); j++) 
 		{
@@ -33,7 +35,6 @@ int main()
 			if (map.getTileMap(i, j) == 'c') entities.push_back(new HardEnemy(j * 32, i * 32));
 			if (map.getTileMap(i, j) == 'w') { hero.setXY(j * 32, i * 32); }
 		}
-
 
 	RenderWindow window(sf::VideoMode(1440, 940), "sfml");
 	menu(window);
@@ -50,20 +51,25 @@ int main()
 				buf = it;
 			}
 
+			if (hero.getSprite().getGlobalBounds().intersects((*it)->getSprite().getGlobalBounds()) && (*it)->getName() == "Enemy")
+			{
+				(*it)->setDx((*it)->getDx() * -1);
+				hero.hit();
+			}
+
 			for (auto it1 = entities.begin(); it1 != entities.end(); it1++)
 			{
 				if ((*it)->getName() == "Enemy" && (*it1)->getName() == "Fireball")
 				{
-					int health = (*it)->getHealth();
 					if ((*it)->getSprite().getGlobalBounds().intersects((*it1)->getSprite().getGlobalBounds()))
 					{
-						health -= 1;
-						(*it)->setHealth(health);
+						(*it)->hit();
 						(*it1)->setLife(false);
 					}
 				}
 			}
 		}
+
 		if (select) entities.erase(buf);
 
 		time = clock.getElapsedTime().asMicroseconds();
@@ -92,12 +98,13 @@ int main()
 		window.clear();
 		window.draw(bg);
 		map.Draw(window);
-		for ( auto it = entities.begin(); it != entities.end(); it++) 
+		for (auto it = entities.begin(); it != entities.end(); it++)
 		{
-			window.draw((*it)->getSprite());
+			(*it)->drawSprite(window);
 		}
-		window.draw(hero.getSprite());
+		hero.drawSprite(window);
 		window.display();
 	}
+
 	return 0;
 }

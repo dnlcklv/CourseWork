@@ -1,4 +1,10 @@
 #include "Enemy.h"
+
+Enemy::Enemy(float X, float Y) :Entity(X, Y)
+{
+	name = "Enemy";
+	w = 29; h = 45;
+}
 void Enemy::CheckColissionWithMapX(float& dx)
 {
 	for (int i = y / 32; i < (y + h) / 32;i++)
@@ -25,12 +31,24 @@ void Enemy::CheckColissionWithMapY(float& dy)
 			if (map.getTileMap(i, j) == ' ' || !onGround) dy = 0.5;
 		}
 }
+void Enemy::hit()
+{
+	health--;
+	healths.pop_back();
+	if (health <= 0) life = false;
+}
 void Enemy::update(float time)
 {
+	int buf = 0;
+	for (int i = 0; i < healths.size(); i++)
+	{
+		healths[i].setPosition(x + buf * 20, y - 10);
+		buf++;
+	}
 	x += dx * time;
 	CheckColissionWithMapX(dx);
 	y += dy * time;
 	CheckColissionWithMapY(dy);
-	sprite.setPosition(x + w / 2, y + h / 2);
+	spriteEntity.setPosition(x + w / 2, y + h / 2);
 	if (health <= 0) { life = false; }
 }

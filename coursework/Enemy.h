@@ -5,11 +5,8 @@
 class Enemy : public Entity  
 {
 public:
-	Enemy(float X, float Y) :Entity(X, Y)
-	{
-		name = "Enemy";
-		w = 29; h = 45;
-	}
+	Enemy(float X, float Y);
+	void hit() override;
 	void CheckColissionWithMapX(float& dx) override;
 	void CheckColissionWithMapY(float& dy) override;
 	void update(float time) override;

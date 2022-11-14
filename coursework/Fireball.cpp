@@ -5,10 +5,10 @@ Fireball::Fireball(float X, float Y, int dir) : Entity(X, Y)
 	name = "Fireball";
 		w = 38;
 		h = 20;
-		texture.loadFromFile("images/fireball.png");
-		sprite.setTexture(texture);
-		sprite.setOrigin(w / 2, h / 2);
-		sprite.setTextureRect(IntRect(53, 52, w, h));
+		texturEntity.loadFromFile("images/fireball.png");
+		spriteEntity.setTexture(texturEntity);
+		spriteEntity.setOrigin(w / 2, h / 2);
+		spriteEntity.setTextureRect(IntRect(53, 52, w, h));
 		direction = dir;
 		speed = 0.3;
 		dy = 0.07;
@@ -31,6 +31,9 @@ void Fireball::CheckColissionWithMapX(float& dx)
 void Fireball::CheckColissionWithMapY(float& dy) 
 {
 }
+void Fireball::hit()
+{
+}
 void Fireball::update(float time)
 {
 	switch (direction)
@@ -50,5 +53,5 @@ void Fireball::update(float time)
 	CheckColissionWithMapX(dx);
 	y += dy * time;
 
-	sprite.setPosition(x + w / 2, y + h / 2);
+	spriteEntity.setPosition(x + w / 2, y + h / 2);
 }
