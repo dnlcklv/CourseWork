@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Entity">
+    <Position X="5.25" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>EAEAUAAAQAAAAgAAABRoAAAAAEQEBQAAQBh0QAAFBAg=</HashCode>
+      <FileName>Entity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Map">
+    <Position X="10.5" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAABAAAgQAQIAAAAAAAAAAQIAAAAIAAAAAAAA=</HashCode>
+      <FileName>Map.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enemy">
+    <Position X="5.25" Y="8.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAgAAAAAAAAAAAAAAAAAAABgAAAAEAAA=</HashCode>
+      <FileName>Enemy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasyEnemy">
+    <Position X="4.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EasyEnemy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MediumEnemy">
+    <Position X="6.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediumEnemy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HardEnemy">
+    <Position X="7.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HardEnemy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fireball">
+    <Position X="8.75" Y="8.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAABgQAAAEAAA=</HashCode>
+      <FileName>Fireball.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hero">
+    <Position X="1.5" Y="8" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Hero::state">
+        <TypeIdentifier>
+          <NewMemberFileName>Hero.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AACAAAgEAAAAAgDAgAAAIQAAAAAAAAEEARggAGAEAAA=</HashCode>
+      <FileName>Hero.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

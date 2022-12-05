@@ -146,14 +146,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="coursework.cpp" />
-    <ClCompile Include="EasyEnemy.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Fireball.cpp" />
-    <ClCompile Include="HardEnemy.cpp" />
     <ClCompile Include="Hero.cpp" />
     <ClCompile Include="Map.cpp" />
-    <ClCompile Include="MediumEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EasyEnemy.h" />
@@ -165,6 +162,9 @@
     <ClInclude Include="Map.h" />
     <ClInclude Include="MediumEnemy.h" />
     <ClInclude Include="Menu.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

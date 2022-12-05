@@ -5,8 +5,8 @@ Fireball::Fireball(float X, float Y, int dir) : Entity(X, Y)
 	name = "Fireball";
 		w = 38;
 		h = 20;
-		texturEntity.loadFromFile("images/fireball.png");
-		spriteEntity.setTexture(texturEntity);
+		textureEntity.loadFromFile("images/fireball.png");
+		spriteEntity.setTexture(textureEntity);
 		spriteEntity.setOrigin(w / 2, h / 2);
 		spriteEntity.setTextureRect(IntRect(53, 52, w, h));
 		direction = dir;

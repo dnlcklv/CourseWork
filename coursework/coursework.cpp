@@ -16,6 +16,8 @@ int main()
 	Sprite bg;
 	bg.setTexture(background);
 
+	
+
 	std::list <Entity*> entities;
 	std::list <Entity*>::iterator buf;
 

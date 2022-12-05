@@ -5,10 +5,10 @@ Hero::Hero(float X, float Y) : Entity(X, Y)
 	name = "hero";
 	w = 34; h = 59;
 	CurrentFrame = 0;
-	texturEntity.loadFromFile("images/hero.png");
-	spriteEntity.setTexture(texturEntity);
+	textureEntity.loadFromFile("images/hero.png");
+	spriteEntity.setTexture(textureEntity);
 	spriteEntity.setOrigin(w / 2, h / 2);
-	playerScore = 0; state = stay;
+	state = stay;
 	health = 3;
 	spriteEntity.setTextureRect(IntRect(64, 126, w, h));
 	isMove = false;

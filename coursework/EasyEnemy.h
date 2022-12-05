@@ -6,8 +6,8 @@ public:
 	EasyEnemy(float X, float Y) :Enemy(X, Y)
 	{
 		onGround = false;
-		texturEntity.loadFromFile("images/EasyEnemy.png");
-		spriteEntity.setTexture(texturEntity);
+		textureEntity.loadFromFile("images/EasyEnemy.png");
+		spriteEntity.setTexture(textureEntity);
 		spriteEntity.setOrigin(w / 2, h / 2);
 		spriteEntity.setTextureRect(IntRect(57, 0, w, h));
 		dx = 0.1;

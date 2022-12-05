@@ -5,8 +5,8 @@ class HardEnemy:public Enemy
 public:
 	HardEnemy(float X, float Y) :Enemy(X, Y)
 	{
-		texturEntity.loadFromFile("images/HardEnemy.png");
-		spriteEntity.setTexture(texturEntity);
+		textureEntity.loadFromFile("images/HardEnemy.png");
+		spriteEntity.setTexture(textureEntity);
 		spriteEntity.setOrigin(w / 2, h / 2);
 		spriteEntity.setTextureRect(IntRect(53, 0, w, h));
 		dx = 0.17;

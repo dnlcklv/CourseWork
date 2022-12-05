@@ -9,7 +9,7 @@ protected:
 	float dx, dy, x, y, speed;
 	int w, h, health, bufHealth;
 	bool life, onGround;
-	Texture texturEntity;
+	Texture textureEntity;
 	Texture textureHealth;
 	Sprite spriteEntity;
 	Sprite spriteHealth;

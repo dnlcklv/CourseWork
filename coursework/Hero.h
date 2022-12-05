@@ -5,8 +5,7 @@
 class Hero : public Entity
 {
 private:
-	enum { left, right, up, down, jump, stay } state;
-	int playerScore;
+	enum state { left, right, up, down, jump, stay } state;
 	float CurrentFrame;
 	View view;
 	bool isMove;

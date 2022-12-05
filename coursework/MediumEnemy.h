@@ -6,8 +6,8 @@ class MediumEnemy : public Enemy
 public:
 	MediumEnemy(float X, float Y) : Enemy(X, Y)
 	{
-		texturEntity.loadFromFile("images/MediumEnemy.png");
-		spriteEntity.setTexture(texturEntity);
+		textureEntity.loadFromFile("images/MediumEnemy.png");
+		spriteEntity.setTexture(textureEntity);
 		spriteEntity.setOrigin(w / 2, h / 2);
 		spriteEntity.setTextureRect(IntRect(51, 0, w, h));
 		dx = 0.15;
